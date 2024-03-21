@@ -1,0 +1,24 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: writes3iampolicies.awsblueprints.io
+spec:
+  group: awsblueprints.io
+  names:
+    kind: WriteS3IAMPolicy
+    listKind: WriteS3IAMPolicyList
+    plural: writes3iampolicies
+    singular: writes3iampolicy
+  scope: Namespaced  # or Cluster if it's a cluster-scoped resource
+  versions:
+    - name: v1alpha1  # or any other version
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              # Define the schema for the spec field of your custom resource
+              # For example, you might define fields like 'bucketName', 'accessLevel', etc.
